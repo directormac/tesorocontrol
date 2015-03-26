@@ -6,16 +6,15 @@
 package tesoro.inventory.control.application;
 
 import com.airhacks.afterburner.injection.Injector;
+import com.guigarage.flatterfx.FlatterFX;
+import com.guigarage.flatterfx.FlatterInputType;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javax.inject.Inject;
 import tesoro.inventory.control.application.views.application.ApplicationView;
-import tesoro.inventory.control.business.PersistenceService;
 
 
 public class InventorySystem extends Application {
-
 
     
     @Override
@@ -26,6 +25,7 @@ public class InventorySystem extends Application {
         stage.setTitle("followme.fx");
         stage.setScene(scene);
         stage.show();
+        FlatterFX.style(FlatterInputType.TOUCH);
     }
 
     @Override

@@ -6,20 +6,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="633.0" prefWidth="1160.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesoro.inventory.control.application.views.item.ItemPresenter">
+<AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="633.0" prefWidth="1160.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesoro.inventory.control.application.views.item.ItemPresenter">
    <children>
-      <TableView fx:id="itemTableView" layoutX="29.0" layoutY="158.0" prefHeight="454.0" prefWidth="1119.0">
-        <columns>
-          <TableColumn fx:id="itemNameColumn" prefWidth="348.0" text="Name" />
-          <TableColumn fx:id="itemSizeColumn" prefWidth="428.0" text="Size" />
-            <TableColumn fx:id="itemPrizeColumn" prefWidth="342.0" text="Prize" />
-        </columns>
-      </TableView>
-      <Button layoutX="222.0" layoutY="30.0" mnemonicParsing="false" text="Add supplier" />
-      <Button layoutX="35.0" layoutY="88.0" mnemonicParsing="false" text="Add New Item" />
-      <Button layoutX="222.0" layoutY="88.0" mnemonicParsing="false" text="Edit Item" />
-      <ComboBox layoutX="35.0" layoutY="30.0" prefWidth="150.0" />
-      <Button layoutX="341.0" layoutY="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Edit" />
+      <VBox layoutX="29.0" layoutY="30.0" spacing="20.0">
+         <children>
+            <HBox layoutX="35.0" layoutY="30.0" spacing="20.0">
+               <children>
+                  <ComboBox fx:id="supplierComboBox" layoutX="35.0" layoutY="30.0" prefWidth="150.0" />
+                  <Button fx:id="addSupplierButton" layoutX="222.0" layoutY="30.0" mnemonicParsing="false" onAction="#addSupplierButtonAction" text="Add supplier" />
+                  <Button fx:id="editSupplierButton" layoutX="341.0" layoutY="30.0" mnemonicParsing="false" onAction="#editSupplierButtonAction" prefHeight="25.0" prefWidth="64.0" text="Edit" />
+               </children>
+            </HBox>
+            <HBox layoutX="35.0" layoutY="91.0" spacing="20.0">
+               <children>
+                  <Button fx:id="addNewItem" layoutX="35.0" layoutY="88.0" mnemonicParsing="false" onAction="#addNewItemButton" text="Add New Item" />
+                  <Button fx:id="editItem" layoutX="222.0" layoutY="88.0" mnemonicParsing="false" onAction="#editItemButton" text="Edit Item" />
+                  <TextField fx:id="searchField" prefHeight="25.0" prefWidth="218.0" promptText="Search Item here" />
+               </children>
+            </HBox>
+            <TableView fx:id="itemTableView" layoutX="29.0" layoutY="158.0" prefHeight="454.0" prefWidth="1119.0">
+              <columns>
+                <TableColumn fx:id="itemNameColumn" prefWidth="348.0" text="Name" />
+                <TableColumn fx:id="itemSizeColumn" prefWidth="428.0" text="Size" />
+                  <TableColumn fx:id="itemPrizeColumn" prefWidth="342.0" text="Prize" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
