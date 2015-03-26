@@ -22,10 +22,10 @@ public class InventorySystem extends Application {
 
         ApplicationView appView = new ApplicationView();
         Scene scene = new Scene(appView.getView());
-        stage.setTitle("followme.fx");
+        stage.setTitle("Tesoro Inventory");
         stage.setScene(scene);
         stage.show();
-        FlatterFX.style(FlatterInputType.TOUCH);
+        
     }
 
     @Override

@@ -20,9 +20,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQueries(
-        @NamedQuery(name = "Item.findAll", query = "SELECT c FROM Item c")
-)
+@NamedQueries(@NamedQuery(name = "Item.findAll", query = "SELECT c FROM Item c"))
 public class Item extends AbstractEntity implements Serializable{
     
     private StringProperty name;
@@ -40,40 +38,59 @@ public class Item extends AbstractEntity implements Serializable{
     
     @Column(name = "name")
     public String getName() {
-        return name.get();
+        return nameProperty().get();
     }
 
 
     public void setName(String name) {
-        this.name.set(name);
+        this.nameProperty().set(name);
     }
 
     public String getBottleSize() {
-        return bottleSize.get();
+        return bottleSizeProperty().get();
     }
 
     public void setBottleSize(String description) {
-        this.bottleSize.set(description);
+        this.bottleSizeProperty().set(description);
     }
     
      public Double getPrice(){
-       return this.price.get();
+       return this.prizeProperty().get();
     }
     
     public void setPrice(Double price){
-        this.price.set(price);
+        this.prizeProperty().set(price);
     }
 
     @ManyToOne()
     @JoinColumn(name="supplier_id")
     public Supplier getSupplier() {
-        return supplier.get();
+        return supplierProperty().get();
     }
 
     public void setSupplier(Supplier supplier) {
-        this.supplier.set(supplier);
+        this.supplierProperty().set(supplier);
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public StringProperty bottleSizeProperty() {
+        return bottleSize;
+    }
+
+    public DoubleProperty prizeProperty() {
+        return price;
+    }
+
+    public ObjectProperty<Supplier> supplierProperty() {
+        return supplier;
     }
     
-    
+    @Override
+    public String toString(){
+        return getName();
+    }
     
 }

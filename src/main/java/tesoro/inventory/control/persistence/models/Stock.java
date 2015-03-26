@@ -14,6 +14,8 @@ import javafx.beans.property.SimpleObjectProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -22,6 +24,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Stock")
+@NamedQueries(@NamedQuery(name = "Stock.findAll", query = "SELECT c FROM Stock c"))
 public class Stock  extends AbstractEntity implements Serializable{
     
     private ObjectProperty<Item> item;

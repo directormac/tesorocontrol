@@ -7,11 +7,15 @@
     <class>tesoro.inventory.control.persistence.models.Stock</class>
     <class>tesoro.inventory.control.persistence.models.Supplier</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/isystem"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:/tesoro/systems/database;create=true"/>
+      <property name="javax.persistence.jdbc.user" value="test"/>
+      <property name="javax.persistence.jdbc.password" value="test"/>  
+<!--      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/isystem"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="password"/>
-      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+      <property name="javax.persistence.jdbc.password" value="password"/>-->
+      <!--<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>-->
       <property name="eclipselink.logging.level" value="FINE"/>
     </properties>
   </persistence-unit>

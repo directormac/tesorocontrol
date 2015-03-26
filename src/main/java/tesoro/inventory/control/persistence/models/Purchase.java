@@ -13,11 +13,14 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries(@NamedQuery(name = "Purchase.findAll", query = "SELECT c FROM Purchase c"))
 public class Purchase extends AbstractEntity implements Serializable{
     
     private ObjectProperty<Item> item;

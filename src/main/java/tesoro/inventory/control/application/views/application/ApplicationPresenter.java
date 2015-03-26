@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javax.inject.Inject;
 import tesoro.inventory.control.application.views.item.ItemView;
+import tesoro.inventory.control.application.views.purchase.PurchaseView;
+import tesoro.inventory.control.application.views.stock.StockView;
 import tesoro.inventory.control.business.PersistenceService;
 
 /**
@@ -51,10 +53,14 @@ public class ApplicationPresenter implements Initializable {
 
     @FXML
     private void stocksButtonAction(ActionEvent event) {
+        mainPane.getChildren().clear();
+        mainPane.getChildren().addAll(new StockView().getView());
     }
 
     @FXML
     private void purchaseButtonAction(ActionEvent event) {
+        mainPane.getChildren().clear();
+        mainPane.getChildren().addAll(new PurchaseView().getView());
     }
     
 }

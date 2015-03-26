@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="445.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesoro.inventory.control.application.views.purchase.PurchasePresenter">
+   <children>
+      <TextField fx:id="searchField" layoutX="243.0" layoutY="49.0" prefHeight="25.0" prefWidth="171.0" promptText="Search for purchase" />
+      <Button fx:id="removeStockButton" layoutX="144.0" layoutY="49.0" mnemonicParsing="false" onAction="#removeStockButtonAction" prefHeight="25.0" prefWidth="65.0" text="Remove" />
+      <Button fx:id="addStockButton" layoutX="25.0" layoutY="49.0" mnemonicParsing="false" onAction="#addStockButtonAction" text="Add Purchase" />
+      <TableView fx:id="stockTableView" layoutX="32.0" layoutY="96.0" prefHeight="316.0" prefWidth="632.0">
+         <columns>
+            <TableColumn fx:id="datePurchasedColumn" prefWidth="236.0" text="Date Purchased" />
+            <TableColumn fx:id="nameColumn" prefWidth="203.0" text="Name" />
+            <TableColumn fx:id="quantityColumn" prefWidth="192.0" text="Quantity" />
+         </columns>
+      </TableView>
+      <Button mnemonicParsing="false" text="Button" />
+      <Button fx:id="saveTable" layoutX="591.0" layoutY="49.0" mnemonicParsing="false" onAction="#saveTableAction" text="Save Table" />
+   </children>
+</AnchorPane>

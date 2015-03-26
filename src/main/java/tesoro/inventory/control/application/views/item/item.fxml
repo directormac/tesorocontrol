@@ -15,6 +15,7 @@
                   <ComboBox fx:id="supplierComboBox" layoutX="35.0" layoutY="30.0" prefWidth="150.0" />
                   <Button fx:id="addSupplierButton" layoutX="222.0" layoutY="30.0" mnemonicParsing="false" onAction="#addSupplierButtonAction" text="Add supplier" />
                   <Button fx:id="editSupplierButton" layoutX="341.0" layoutY="30.0" mnemonicParsing="false" onAction="#editSupplierButtonAction" prefHeight="25.0" prefWidth="64.0" text="Edit" />
+                  <Button fx:id="removesupplierButton" mnemonicParsing="false" onAction="#removesupplierButtonAction" prefHeight="25.0" prefWidth="130.0" text="Remove Supplier" />
                </children>
             </HBox>
             <HBox layoutX="35.0" layoutY="91.0" spacing="20.0">
@@ -22,13 +23,15 @@
                   <Button fx:id="addNewItem" layoutX="35.0" layoutY="88.0" mnemonicParsing="false" onAction="#addNewItemButton" text="Add New Item" />
                   <Button fx:id="editItem" layoutX="222.0" layoutY="88.0" mnemonicParsing="false" onAction="#editItemButton" text="Edit Item" />
                   <TextField fx:id="searchField" prefHeight="25.0" prefWidth="218.0" promptText="Search Item here" />
+                  <Button fx:id="removeItemButton" mnemonicParsing="false" onAction="#removeItemButtonAction" prefHeight="25.0" prefWidth="130.0" text="Remove Item" />
                </children>
             </HBox>
             <TableView fx:id="itemTableView" layoutX="29.0" layoutY="158.0" prefHeight="454.0" prefWidth="1119.0">
               <columns>
-                <TableColumn fx:id="itemNameColumn" prefWidth="348.0" text="Name" />
-                <TableColumn fx:id="itemSizeColumn" prefWidth="428.0" text="Size" />
-                  <TableColumn fx:id="itemPrizeColumn" prefWidth="342.0" text="Prize" />
+                  <TableColumn fx:id="supplierColumn" prefWidth="233.0" text="Supplier" />
+                <TableColumn fx:id="itemNameColumn" prefWidth="402.0" text="Name" />
+                <TableColumn fx:id="itemSizeColumn" prefWidth="242.0" text="Size" />
+                  <TableColumn fx:id="itemPrizeColumn" prefWidth="240.0" text="Prize" />
               </columns>
             </TableView>
          </children>

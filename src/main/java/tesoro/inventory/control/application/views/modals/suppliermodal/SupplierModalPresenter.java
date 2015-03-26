@@ -22,7 +22,7 @@ import tesoro.inventory.control.persistence.models.Supplier;
  */
 public class SupplierModalPresenter implements Initializable {
     @FXML
-    private TextField nameField;
+    private TextField nameField,addressField,phoneNumberField;
     @FXML
     private Button okButton;
     @FXML
@@ -40,19 +40,24 @@ public class SupplierModalPresenter implements Initializable {
     @FXML
     private void okButtonAction(ActionEvent event) {
         if(isInputValid()){
-            
+            supplier.setName(nameField.textProperty().get());
+            supplier.setAddress(addressField.textProperty().get());
+            supplier.setPhoneNumber(phoneNumberField.textProperty().get());
+            okClicked = true;
+            dialogStage.close();
         }
     }
 
     @FXML
     private void cancelButtonAction(ActionEvent event) {
-        
+        dialogStage.close();
     }
     
     public void setSupplier(Supplier supplier){
         this.supplier = supplier;
         nameField.textProperty().set(supplier.getName());
-                
+        addressField.textProperty().set(supplier.getAddress());
+        phoneNumberField.textProperty().set(supplier.getPhoneNumber());
     }
     
     public void setDialogStage(Stage stage){

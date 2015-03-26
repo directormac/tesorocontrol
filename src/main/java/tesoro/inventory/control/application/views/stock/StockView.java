@@ -3,9 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tesoro.inventory.control.business;
+package tesoro.inventory.control.application.views.stock;
 
+import com.airhacks.afterburner.views.FXMLView;
 
-public class ManagementService {
+/**
+ *
+ * @author Hadouken
+ */
+public class StockView extends FXMLView{
     
 }

@@ -13,11 +13,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Supplier")
+@NamedQueries(@NamedQuery(name = "Supplier.findAll", query = "SELECT c FROM Supplier c"))
 public class Supplier extends AbstractEntity implements Serializable{
     
     private StringProperty name;
@@ -34,11 +37,11 @@ public class Supplier extends AbstractEntity implements Serializable{
     }
      
     public String getName() {
-        return name.get();
+        return nameProperty().get();
     }
     
     public void setName(String name) {
-        this.name.set(name);
+        this.nameProperty().set(name);
     }
 
     public String getAddress() {
@@ -68,6 +71,13 @@ public class Supplier extends AbstractEntity implements Serializable{
     }
     
    
-    
+    @Override
+    public String toString(){
+        return getName();
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
     
 }

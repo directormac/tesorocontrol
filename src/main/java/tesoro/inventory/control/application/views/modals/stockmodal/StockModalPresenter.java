@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tesoro.inventory.control.application.views.modals.itemmodal;
+package tesoro.inventory.control.application.views.modals.stockmodal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,48 +17,45 @@ import javafx.stage.Stage;
 import javax.inject.Inject;
 import tesoro.inventory.control.business.PersistenceService;
 import tesoro.inventory.control.persistence.models.Item;
-import tesoro.inventory.control.persistence.models.Purchase;
-import tesoro.inventory.control.persistence.models.Supplier;
+import tesoro.inventory.control.persistence.models.Stock;
 
 /**
  * FXML Controller class
  *
  * @author Hadouken
  */
-public class ItemModalPresenter implements Initializable {
+public class StockModalPresenter implements Initializable {
     @FXML
     private Button okButton;
     @FXML
     private Button cancelButton;
     @FXML
-    private TextField nameField;
+    private ComboBox<Item> itemComboBox;
     @FXML
-    private TextField bottleSizeField;
-    @FXML
-    private TextField prizeField;
-    @FXML
-    private ComboBox<Supplier> supplierComboBox;
-    
-    
-    private Stage dialogStage;
-    private boolean okClicked = false;
-    private Item item;
+    private TextField quantityField;
+
     
     @Inject
     PersistenceService service;
     
+    
+    Stock stock;
+    Stage dialogStage;
+    private boolean okClicked = false;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       supplierComboBox.setItems(service.getSuppliers());
+        itemComboBox.setItems(service.getItems());
+        
+        
+        
     }    
 
     @FXML
     private void okButtonAction(ActionEvent event) {
          if(isInputValid()){
-            item.setName(nameField.textProperty().get());
-            item.setPrice(Double.parseDouble(prizeField.textProperty().get()));
-            item.setBottleSize(bottleSizeField.textProperty().get());
-            item.setSupplier(supplierComboBox.getSelectionModel().getSelectedItem());
+            stock.setQuantity(Integer.parseInt(quantityField.textProperty().get()));
+            stock.setItem(itemComboBox.getSelectionModel().getSelectedItem());
             okClicked = true;
             dialogStage.close();
         }
@@ -70,13 +67,11 @@ public class ItemModalPresenter implements Initializable {
         dialogStage.close();
     }
     
-    public void setItem(Item item){
-        this.item = item;
-        nameField.textProperty().set(item.getName());
-        prizeField.textProperty().set(Double.toString(item.getPrice()));
-        bottleSizeField.textProperty().set(item.getBottleSize());
-        if(item.getSupplier()!= null){
-            supplierComboBox.getSelectionModel().select(item.getSupplier());
+    public void setStock(Stock stock){
+        this.stock = stock;
+        quantityField.textProperty().set(stock.getQuantity().toString());
+        if(stock.getItem() != null){
+            itemComboBox.getSelectionModel().select(stock.getItem());
         }
         
     }
@@ -87,7 +82,7 @@ public class ItemModalPresenter implements Initializable {
     
     public boolean  isInputValid(){
         String errorMessage = "";
-        if(nameField.textProperty().get().isEmpty()){
+        if(quantityField.textProperty().get().isEmpty()){
             errorMessage += "Namefield is empty";
         }
         if(errorMessage.length() == 0){
@@ -101,7 +96,5 @@ public class ItemModalPresenter implements Initializable {
     public boolean isOkClicked() {
         return okClicked;
     }
-    
-    
     
 }

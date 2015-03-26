@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="contentPane" prefHeight="473.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesoro.inventory.control.application.views.stock.StockPresenter">
+   <children>
+      <Button fx:id="addStockButton" layoutX="39.0" layoutY="53.0" mnemonicParsing="false" onAction="#addStockButtonAction" text="Add Stock" />
+      <Button fx:id="removeStockButton" layoutX="131.0" layoutY="53.0" mnemonicParsing="false" onAction="#removeStockButtonAction" prefHeight="25.0" prefWidth="65.0" text="Remove" />
+      <TextField fx:id="searchField" layoutX="215.0" layoutY="53.0" prefHeight="25.0" prefWidth="171.0" promptText="Search for stock" />
+      <TableView fx:id="stockTableView" layoutX="42.0" layoutY="106.0" prefHeight="316.0" prefWidth="632.0">
+         <columns>
+            <TableColumn fx:id="dateArrivedColumn" prefWidth="236.0" text="Date Arrived" />
+            <TableColumn fx:id="nameColumn" prefWidth="203.0" text="Name" />
+            <TableColumn fx:id="quantityColumn" prefWidth="192.0" text="Quantity" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
