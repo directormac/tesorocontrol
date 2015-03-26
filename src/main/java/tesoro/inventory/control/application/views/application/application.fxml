@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="715.0" prefWidth="1142.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesoro.inventory.control.application.views.application.ApplicationPresenter">
+   <children>
+      <BorderPane prefHeight="715.0" prefWidth="1142.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="82.0" prefWidth="1142.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="itemButton" mnemonicParsing="false" onAction="#itemButtonAction" prefHeight="74.0" prefWidth="183.0" text="Items" />
+                  <Button fx:id="stocksButton" mnemonicParsing="false" onAction="#stocksButtonAction" prefHeight="74.0" prefWidth="183.0" text="Stocks" />
+                  <Button fx:id="purchaseButton" mnemonicParsing="false" onAction="#purchaseButtonAction" prefHeight="74.0" prefWidth="183.0" text="Purchase" />
+                  <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="183.0" text="Reserve Button" />
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <AnchorPane fx:id="mainPane" prefHeight="633.0" prefWidth="1140.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
